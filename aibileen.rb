@@ -3,7 +3,8 @@ Bundler.require
 require 'date'
 require_relative 'event'
 
-text = File.readlines ARGV[0]
+#text = File.readlines ARGV[0]
+text = STDIN.readlines
 prompt = !ENV['USE_PROMPT'].nil?
 events = Event.parse_events(text)
 

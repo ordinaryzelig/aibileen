@@ -4,9 +4,9 @@ CLI to calculate how many hours nanny worked on certain days.
 
 ## Usage
 
-`ruby aibileen.rb INPUT_FILE`
+`ruby aibileen.rb`
 
-Input format is what OSX Automator outputs as Event Summary.
+Input (STDIN) format is what OSX Automator outputs as Event Summary.
 Example:
 
 ```
