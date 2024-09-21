@@ -3,8 +3,7 @@ Bundler.require
 require 'date'
 require_relative 'event'
 
-#text = File.readlines ARGV[0]
-text = STDIN.readlines
+text = STDIN.read.encode("UTF-8", :invalid => :replace, :replace => ' ').split("\n")
 prompt = !ENV['USE_PROMPT'].nil?
 events = Event.parse_events(text)
 
