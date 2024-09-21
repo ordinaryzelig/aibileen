@@ -37,9 +37,9 @@ private
       start, stop = 2.times.map do |idx|
         month, day, year = dates_string[idx].scan(/\d+/)
         year = Integer(year) + 2000
-        /(?<hour>\d+):(?<minute>\d{2}):\d{2} (?<ampm>\w{2})/ =~ times_string[idx]
-        hour = Integer(hour)
-        hour += 12 if hour < 12 && ampm == 'PM'
+        # Encoding issue between numbers and AM/PM.
+        /(?<hour>\d+):(?<minute>\d{2}):(?<sec>\d{2})/ =~ times_string[idx]
+        hour = Integer(hour.sub(/^0+/, ''))
         DateTime.new Integer(year), Integer(month), Integer(day), Integer(hour), Integer(minute)
       end
       Event.new(
