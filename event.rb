@@ -39,7 +39,7 @@ private
         year = Integer(year) + 2000
         # Encoding issue between numbers and AM/PM.
         /(?<hour>\d+):(?<minute>\d{2}):(?<sec>\d{2})/ =~ times_string[idx]
-        hour = Integer(hour.sub(/^0+/, ''))
+        hour = Integer(hour.sub(/^0/, ''))
         DateTime.new Integer(year), Integer(month), Integer(day), Integer(hour), Integer(minute)
       end
       Event.new(
